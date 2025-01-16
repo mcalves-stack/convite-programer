@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>Título</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="db">"Stand up + você = risadas e diversão garantidas Bora?</h1>
+  <div id="buttonms">
+      <a class="buttonms" id="sim">SIM</a>
+      <div id="areaBotao">
+        <button class="buttondonao" id="botao1">NÃO</button>
+      </div>
+  </div>
+  <script>
+    // Função para exibir o alerta
+    function exibirAlerta() {
+      alert("Aee melhor escolhaaa !!!");
+    }
+
+    document.getElementById('sim').addEventListener('click', exibirAlerta);
+
+    var botao = document.getElementById('botao1');
+    var areaBotao = document.getElementById('areaBotao');
+
+    var moveButton = function(event) {
+      var x = Math.floor(Math.random() * (window.innerWidth - botao.offsetWidth));
+      var y = Math.floor(Math.random() * (window.innerHeight - botao.offsetHeight));
+      
+      if (x < 0) {
+        x = 0;
+      } else if (x > (window.innerWidth - botao.offsetWidth)) {
+        x = window.innerWidth - botao.offsetWidth;
+      }
+      
+      if (y < 0) {
+        y = 0;
+      } else if (y > (window.innerHeight - botao.offsetHeight)) {
+        y = window.innerHeight - botao.offsetHeight;
+      }
+
+      botao.style.left = x + 'px';
+      botao.style.top = y + 'px';
+    }
+
+    if ('ontouchstart' in window) {
+      areaBotao.ontouchstart = moveButton;
+    } else {
+      areaBotao.onmouseover = moveButton;
+    }
+  </script>
+</body>
+</html>
